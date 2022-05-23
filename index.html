@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="images/IconoV.ico">
+    <!--<body style="background-color:rgb(255,0,0);"></body>-->
+    <title>Proyecto Final</title>
+    <!-- Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Estilos -->
+    <link href="css/BaseDC.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.js" integrity="sha512-Lii3WMtgA0C0qmmkdCpsG0Gjr6M0ajRyQRQSbTF6BsrVh/nhZdHpVZ76iMIPvQwz1eoXC3DmAg9K51qT5/dEVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  </head>
+
+  <body class="d-flex h-100 text-center text-white bg-primary">
+
+    <div class="cover-container d-flex w-100 h-100 p-2 mx-auto flex-column">
+      
+      <header class="mb-auto">
+        <div>
+          <h2>¿Por qué las mujeres no quieren ser ingenieras?</h2>
+          <h4>Comentario de ingenieria - Lunes 23-05-2022</h4>
+          <br>
+        </div>
+      </header>
+
+      <main class="px-3">
+        <h3>1. Introducción</h3>
+        <p class="lead">Nos encontramos en un momento donde la programación es tan esencial como el agua misma, la mayoria de cosas que observamos y usamos llevan consigo un monton de codigo que hace posible el funcionamiento de lo que conocemos y es por esto que en la actualidad existe tanta demanda para Ingenieros informaticos. Sin embargo, existe un sesgo de de genero segun una investigación en europa, mas del 50% de universitarios egresados son mujeres y tan solo el 17% son de ingenieria informatica.  </p>
+        <p class="lead"> <img src="images/girls.png" class="img-fluid" alt="R_Datos"> </p>
+        <p class="lead">Las razones recolectadas fueron 3: Estereotipos, falacias sobre capacidades y falta de referentes en la profesion. </p>
+        <p class="lead">Sin embargo, para validar esta información se genero un formulario en la pagina "KoboToolbox" para comparar los resultados junto a la teoria y generar una nueva conclusión.</p>
+        
+        <p class="lead"> <iframe src=https://ee.humanitarianresponse.info/x/s3xjNoSh width="624" height="428"> </iframe> </p>
+        <p class="lead"> <a target="_blank" href="https://www.kobotoolbox.org/#home" class="btn btn-lg btn-primary fw-bold border-white bg-white">KoBotoolbox</a> </p>
+        <!-- Sección Visualizacion de datos -->
+        <br>
+        <h3>2. Datos adquiridos</h3>
+        <p class="lead">Luego de un tiempo, se fueron recolectando distintos datos para despues realizar un breve analisis de la información recolectada. Por medio de Chart Js se trasmitio la información recolectada para exponerlas en forma grafica como son las graficas de barras, la graficas polares, etc.</p>
+        <p class="lead"> <a target="_blank" href="https://www.chartjs.org/" class="btn btn-lg btn-primary fw-bold border-white bg-white">Chartjs</a> </p>
+        <h4>EDAD</h4>
+        <p class="lead"> <canvas class="bg-white" id="Mi1Gr" width="300" height="200"> </canvas> </p>
+        <p class="lead">De 10 de las 13 personas tienen entre 18 y 19 años, las 3 personas restantes son mayores de 20 años.</p>
+        <h4>¿Estan estudiando Ingenieria Informatica?</h4>
+        <p class="lead"> <canvas class="bg-white" id="Mi3Gr"> </canvas> </p> 
+        <p class="lead">El 92.3% de las personas estan estudiando ingenieria informatica y el otro 7.7% restante es una persona que esta ejerciendo conocimientos de la carrera mencionada. </p>
+        <h4>Grafica "Generos"</h4>
+        <p class="lead"> <canvas class="bg-white" id="Mi2Gr"> </canvas> </p>  
+        <p class="lead">10 de las 13 personas encuestadas son hombres, las 3 personas restantes son mujeres, por lo que podria decirse que actualmente, hay mas hombres que mujeres estudiando o ejerciendo la carrera de ingenieria informatica.</p>        
+        <h4>¿Cuál considera que son los motivos por las que las mujeres no estudian la carrera "Ingeniería Informática"?</h4>
+        <p class="lead"> <canvas class="bg-white" id="Mi4Gr"> </canvas> </p> 
+        <p class="lead">La mayoria de respuestas apuntan que a que las mujeres no estudian debido al desinterés.</p>
+        <h3>3. Conclusión / Reflexión</h3>
+        <p class="lead">Comparando la información recolectada junto a lo dicho por Ricardo Perez del castillo, las razones mencionadas por el son ciertas, sin embargo, existen aun mas razones y dependiendo a las personas que se le pregunte, habra una distinta respuesta o semejante a la de otra.</p>
+      </main>
+
+      <footer class="mt-auto text-white-50">
+        <p>Programación de nuevas tecnologías - <a href="https://www.unisabana.edu.co/" class="text-white">Universidad de la Sabana</a>, Made by Juan S. Viracacha S. 23-05-2022.</p>
+      </footer>
+
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+  <script>
+    var ctx=document.getElementById("Mi1Gr").getContext("2d");
+    var MiPGr=new Chart(ctx,
+    {
+        type:"bar",
+        data:
+        {
+          labels:['18','19','21','28','38'],
+          datasets:
+          [{
+            barThickness: 100,
+              label:'Personas Encuestadas',
+                  data:[6,4,1,1,1],
+                  backgroundColor:
+                  [
+                      'rgb(255,255,0,0.7)',
+                      'rgb(0,255,255,0.7)',
+                      'rgb(255,0,255,0.7)'
+                  ],
+                  borderColor: 
+                  [
+                    'rgb(0,255,0)',
+                    'rgb(0,0,255)',
+                    'rgb(255,0,0)'
+                  ],
+                  borderWidth: 2
+          }]
+        },
+        options:
+        {
+          scales:
+          {
+            yAxes:
+            [{
+              ticks:
+              {
+                beginAtZero:true
+              }
+            }]
+        }}
+    });
+
+    var ctx=document.getElementById("Mi2Gr").getContext("2d");
+    var MiSGr=new Chart(ctx,
+    {
+        type:"doughnut",
+        data:
+        {
+          labels:['Masculino','Femenino'],
+          datasets:
+          [{
+              label:'Areas',
+              data:[10,3],
+              backgroundColor:
+              [
+                  'rgb(255,0,54,1)',
+                  'rgb(248,255,57,1)',                 
+              ],
+              borderColor: 
+              [
+                'rgb(255,0,0)',
+                'rgb(255,255,0)',                
+              ],
+              borderWidth: 3
+          }]
+        },
+    });
+    var ctx=document.getElementById("Mi3Gr").getContext("2d");
+    var MiSGr=new Chart(ctx,
+    {
+        type:"doughnut",
+        data:
+        {
+          labels:['Si','No'],
+          datasets:
+          [{
+              label:'Areas',
+              data:[12,1],
+              backgroundColor:
+              [
+                  'rgb(95,247,20)',
+                  'rgb(0,13,255,1)',                 
+              ],
+              borderColor: 
+              [
+                'rgb(95,247,20)',
+                'rgb(0,13,255,1)',                
+              ],
+              borderWidth: 3
+          }]
+        },
+    });
+   var ctx=document.getElementById("Mi4Gr").getContext("2d");
+    var MiPGr=new Chart(ctx,
+    {
+        type:"bar",
+        data:
+        {
+          labels:['Desinterés','Opiniones de personas externas','Discriminación Social','Discriminación Laboral','Falsa creencia sobre no contar con las capacidades'],
+          datasets:
+          [{
+            barThickness: 100,
+              label:'Personas Encuestadas',
+                  data:[11,7,6,4,1],
+                  backgroundColor:
+                  [
+                      'rgb(255,255,0,0.7)',
+                      'rgb(0,255,255,0.7)',
+                      'rgb(255,0,255,0.7)'
+                  ],
+                  borderColor: 
+                  [
+                    'rgb(0,255,0)',
+                    'rgb(0,0,255)',
+                    'rgb(255,0,0)'
+                  ],
+                  borderWidth: 2
+          }]
+        },
+        options:
+        {
+          scales:
+          {
+            yAxes:
+            [{
+              ticks:
+              {
+                beginAtZero:true
+              }
+            }]
+        }}
+    });  
+  </script>
+
+</html>
